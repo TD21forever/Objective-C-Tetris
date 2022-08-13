@@ -10,7 +10,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol HomeViewDelegate <NSObject>
+
+- (void)playClick;
+- (void)leftClick;
+- (void)rightClick;
+
+@end
+
+
 @interface HomeView : UIView
+@property (nonatomic,strong) BoardView* board;
+@property (nonatomic,weak) id<HomeViewDelegate> delegate;
 
 @end
 

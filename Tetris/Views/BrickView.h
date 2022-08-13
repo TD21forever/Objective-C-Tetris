@@ -7,24 +7,14 @@
 
 #import <Foundation/Foundation.h>
 #import "Constant.h"
+#import "BrickManager.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
-
-
-@interface BrickPoint : NSObject
-
-- (instancetype)initWithX:(NSInteger)x withY:(NSInteger)y;
-@property (nonatomic,assign) NSInteger x;
-@property (nonatomic,assign) NSInteger y;
-
-@end
-
-
-
 @interface BrickView : UIView
 
-@property (nonatomic,copy) BrickPoint* point;
+@property (nonatomic,strong) BrickPoint* point;
 
 - (instancetype)initWithFrame:(CGRect)frame point:(BrickPoint*)point;
 

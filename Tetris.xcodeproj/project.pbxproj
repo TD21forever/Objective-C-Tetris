@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F54CA5F35037B0F0078688F2 /* Pods_Tetris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA5CE7F5884C083E311EF051 /* Pods_Tetris.framework */; };
 		F5753A5528A722F300B3D515 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5753A5428A722F300B3D515 /* AppDelegate.m */; };
 		F5753A5B28A722F300B3D515 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5753A5A28A722F300B3D515 /* ViewController.m */; };
 		F5753A6028A722F300B3D515 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5753A5F28A722F300B3D515 /* Assets.xcassets */; };
@@ -17,9 +18,13 @@
 		F5753A7428A7271500B3D515 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5753A7328A7271500B3D515 /* BoardView.m */; };
 		F5753A7828A7293200B3D515 /* UIColor+TT.m in Sources */ = {isa = PBXBuildFile; fileRef = F5753A7728A7293200B3D515 /* UIColor+TT.m */; };
 		F5753A7B28A73D3300B3D515 /* BrickView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5753A7A28A73D3300B3D515 /* BrickView.m */; };
+		F5753A7E28A7660600B3D515 /* BrickManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5753A7D28A7660600B3D515 /* BrickManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18C3D6F05848BF9E70029310 /* Pods-Tetris.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tetris.release.xcconfig"; path = "Target Support Files/Pods-Tetris/Pods-Tetris.release.xcconfig"; sourceTree = "<group>"; };
+		DA5CE7F5884C083E311EF051 /* Pods_Tetris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tetris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DABD42D571E2E3A663D17BCC /* Pods-Tetris.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tetris.debug.xcconfig"; path = "Target Support Files/Pods-Tetris/Pods-Tetris.debug.xcconfig"; sourceTree = "<group>"; };
 		F5753A5028A722F300B3D515 /* Tetris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tetris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5753A5328A722F300B3D515 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F5753A5428A722F300B3D515 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -39,6 +44,8 @@
 		F5753A7728A7293200B3D515 /* UIColor+TT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TT.m"; sourceTree = "<group>"; };
 		F5753A7928A73D3300B3D515 /* BrickView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrickView.h; sourceTree = "<group>"; };
 		F5753A7A28A73D3300B3D515 /* BrickView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrickView.m; sourceTree = "<group>"; };
+		F5753A7C28A7660600B3D515 /* BrickManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrickManager.h; sourceTree = "<group>"; };
+		F5753A7D28A7660600B3D515 /* BrickManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrickManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,19 +53,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F54CA5F35037B0F0078688F2 /* Pods_Tetris.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27FB107CBCF0E54668E1032B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA5CE7F5884C083E311EF051 /* Pods_Tetris.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2E0AE5EAC912993D68985DB5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DABD42D571E2E3A663D17BCC /* Pods-Tetris.debug.xcconfig */,
+				18C3D6F05848BF9E70029310 /* Pods-Tetris.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F5753A4728A722F300B3D515 = {
 			isa = PBXGroup;
 			children = (
 				F5753A5228A722F300B3D515 /* Tetris */,
-				F5753A7628A7293200B3D515 /* UIColor+TT.h */,
-				F5753A7728A7293200B3D515 /* UIColor+TT.m */,
 				F5753A5128A722F300B3D515 /* Products */,
+				2E0AE5EAC912993D68985DB5 /* Pods */,
+				27FB107CBCF0E54668E1032B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +108,8 @@
 				F5753A6528A722F300B3D515 /* main.m */,
 				F5753A6C28A7254E00B3D515 /* Constant.h */,
 				F5753A6D28A7254E00B3D515 /* Constant.m */,
+				F5753A8028A8481600B3D515 /* Categories */,
+				F5753A7F28A8480900B3D515 /* Utils */,
 				F5753A7528A7272200B3D515 /* Views */,
 			);
 			path = Tetris;
@@ -94,11 +121,29 @@
 				F5753A6F28A7270500B3D515 /* HomeView.h */,
 				F5753A7028A7270500B3D515 /* HomeView.m */,
 				F5753A7228A7271500B3D515 /* BoardView.h */,
+				F5753A7328A7271500B3D515 /* BoardView.m */,
 				F5753A7928A73D3300B3D515 /* BrickView.h */,
 				F5753A7A28A73D3300B3D515 /* BrickView.m */,
-				F5753A7328A7271500B3D515 /* BoardView.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F5753A7F28A8480900B3D515 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F5753A7C28A7660600B3D515 /* BrickManager.h */,
+				F5753A7D28A7660600B3D515 /* BrickManager.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		F5753A8028A8481600B3D515 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				F5753A7628A7293200B3D515 /* UIColor+TT.h */,
+				F5753A7728A7293200B3D515 /* UIColor+TT.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -108,9 +153,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F5753A6928A722F300B3D515 /* Build configuration list for PBXNativeTarget "Tetris" */;
 			buildPhases = (
+				A07EF7462EA5509D169D8EB7 /* [CP] Check Pods Manifest.lock */,
 				F5753A4C28A722F300B3D515 /* Sources */,
 				F5753A4D28A722F300B3D515 /* Frameworks */,
 				F5753A4E28A722F300B3D515 /* Resources */,
+				38FDCFB5DCB4E1F0171D76A9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -165,6 +212,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		38FDCFB5DCB4E1F0171D76A9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tetris/Pods-Tetris-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tetris/Pods-Tetris-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tetris/Pods-Tetris-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A07EF7462EA5509D169D8EB7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Tetris-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F5753A4C28A722F300B3D515 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -176,6 +265,7 @@
 				F5753A6628A722F300B3D515 /* main.m in Sources */,
 				F5753A7828A7293200B3D515 /* UIColor+TT.m in Sources */,
 				F5753A7B28A73D3300B3D515 /* BrickView.m in Sources */,
+				F5753A7E28A7660600B3D515 /* BrickManager.m in Sources */,
 				F5753A6E28A7254E00B3D515 /* Constant.m in Sources */,
 				F5753A7428A7271500B3D515 /* BoardView.m in Sources */,
 			);
@@ -307,6 +397,7 @@
 		};
 		F5753A6A28A722F300B3D515 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DABD42D571E2E3A663D17BCC /* Pods-Tetris.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -334,6 +425,7 @@
 		};
 		F5753A6B28A722F300B3D515 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18C3D6F05848BF9E70029310 /* Pods-Tetris.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

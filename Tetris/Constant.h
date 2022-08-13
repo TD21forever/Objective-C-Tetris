@@ -15,9 +15,24 @@ extern NSInteger boardWidth;
 extern NSInteger boardHeight;
 extern NSInteger gridSize;
 
+
+static inline NSInteger gridToFrame(NSInteger val){
+    return val * gridSize;
+}
+
+
+// 方块类型
 typedef NS_ENUM(NSInteger, BrickType){
     BrickTypeI,
     BrickTypeIR,
+};
+
+
+// 方块移动方向
+typedef NS_ENUM(NSInteger, BrickDirection) {
+    BrickDirectionDown = 0,
+    BrickDirectionLeft,
+    BrickDirectionRight
 };
 
 NS_ASSUME_NONNULL_BEGIN
