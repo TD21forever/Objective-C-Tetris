@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HomeView.h"
 
 @interface ViewController : UIViewController
 

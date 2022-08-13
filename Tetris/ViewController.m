@@ -6,7 +6,7 @@
 //
 
 #import "ViewController.h"
-
+#import "Constant.h"
 @interface ViewController ()
 
 @end
@@ -16,6 +16,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
+    HomeView* home = [[HomeView alloc]initWithFrame:CGRectMake(100, 100, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    [self.view addSubview: home];
 }
 
 

@@ -8,27 +8,37 @@
 
 /* Begin PBXBuildFile section */
 		F5753A5528A722F300B3D515 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5753A5428A722F300B3D515 /* AppDelegate.m */; };
-		F5753A5828A722F300B3D515 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5753A5728A722F300B3D515 /* SceneDelegate.m */; };
 		F5753A5B28A722F300B3D515 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5753A5A28A722F300B3D515 /* ViewController.m */; };
-		F5753A5E28A722F300B3D515 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5753A5C28A722F300B3D515 /* Main.storyboard */; };
 		F5753A6028A722F300B3D515 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5753A5F28A722F300B3D515 /* Assets.xcassets */; };
 		F5753A6328A722F300B3D515 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5753A6128A722F300B3D515 /* LaunchScreen.storyboard */; };
 		F5753A6628A722F300B3D515 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5753A6528A722F300B3D515 /* main.m */; };
+		F5753A6E28A7254E00B3D515 /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = F5753A6D28A7254E00B3D515 /* Constant.m */; };
+		F5753A7128A7270500B3D515 /* HomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5753A7028A7270500B3D515 /* HomeView.m */; };
+		F5753A7428A7271500B3D515 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5753A7328A7271500B3D515 /* BoardView.m */; };
+		F5753A7828A7293200B3D515 /* UIColor+TT.m in Sources */ = {isa = PBXBuildFile; fileRef = F5753A7728A7293200B3D515 /* UIColor+TT.m */; };
+		F5753A7B28A73D3300B3D515 /* BrickView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5753A7A28A73D3300B3D515 /* BrickView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F5753A5028A722F300B3D515 /* Tetris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tetris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5753A5328A722F300B3D515 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F5753A5428A722F300B3D515 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F5753A5628A722F300B3D515 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		F5753A5728A722F300B3D515 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		F5753A5928A722F300B3D515 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		F5753A5A28A722F300B3D515 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		F5753A5D28A722F300B3D515 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F5753A5F28A722F300B3D515 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5753A6228A722F300B3D515 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F5753A6428A722F300B3D515 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5753A6528A722F300B3D515 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F5753A6C28A7254E00B3D515 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		F5753A6D28A7254E00B3D515 /* Constant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constant.m; sourceTree = "<group>"; };
+		F5753A6F28A7270500B3D515 /* HomeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeView.h; sourceTree = "<group>"; };
+		F5753A7028A7270500B3D515 /* HomeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeView.m; sourceTree = "<group>"; };
+		F5753A7228A7271500B3D515 /* BoardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoardView.h; sourceTree = "<group>"; };
+		F5753A7328A7271500B3D515 /* BoardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoardView.m; sourceTree = "<group>"; };
+		F5753A7628A7293200B3D515 /* UIColor+TT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+TT.h"; sourceTree = "<group>"; };
+		F5753A7728A7293200B3D515 /* UIColor+TT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TT.m"; sourceTree = "<group>"; };
+		F5753A7928A73D3300B3D515 /* BrickView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrickView.h; sourceTree = "<group>"; };
+		F5753A7A28A73D3300B3D515 /* BrickView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrickView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +56,8 @@
 			isa = PBXGroup;
 			children = (
 				F5753A5228A722F300B3D515 /* Tetris */,
+				F5753A7628A7293200B3D515 /* UIColor+TT.h */,
+				F5753A7728A7293200B3D515 /* UIColor+TT.m */,
 				F5753A5128A722F300B3D515 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,17 +75,30 @@
 			children = (
 				F5753A5328A722F300B3D515 /* AppDelegate.h */,
 				F5753A5428A722F300B3D515 /* AppDelegate.m */,
-				F5753A5628A722F300B3D515 /* SceneDelegate.h */,
-				F5753A5728A722F300B3D515 /* SceneDelegate.m */,
 				F5753A5928A722F300B3D515 /* ViewController.h */,
 				F5753A5A28A722F300B3D515 /* ViewController.m */,
-				F5753A5C28A722F300B3D515 /* Main.storyboard */,
 				F5753A5F28A722F300B3D515 /* Assets.xcassets */,
 				F5753A6128A722F300B3D515 /* LaunchScreen.storyboard */,
 				F5753A6428A722F300B3D515 /* Info.plist */,
 				F5753A6528A722F300B3D515 /* main.m */,
+				F5753A6C28A7254E00B3D515 /* Constant.h */,
+				F5753A6D28A7254E00B3D515 /* Constant.m */,
+				F5753A7528A7272200B3D515 /* Views */,
 			);
 			path = Tetris;
+			sourceTree = "<group>";
+		};
+		F5753A7528A7272200B3D515 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F5753A6F28A7270500B3D515 /* HomeView.h */,
+				F5753A7028A7270500B3D515 /* HomeView.m */,
+				F5753A7228A7271500B3D515 /* BoardView.h */,
+				F5753A7928A73D3300B3D515 /* BrickView.h */,
+				F5753A7A28A73D3300B3D515 /* BrickView.m */,
+				F5753A7328A7271500B3D515 /* BoardView.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +160,6 @@
 			files = (
 				F5753A6328A722F300B3D515 /* LaunchScreen.storyboard in Resources */,
 				F5753A6028A722F300B3D515 /* Assets.xcassets in Resources */,
-				F5753A5E28A722F300B3D515 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,22 +172,18 @@
 			files = (
 				F5753A5B28A722F300B3D515 /* ViewController.m in Sources */,
 				F5753A5528A722F300B3D515 /* AppDelegate.m in Sources */,
+				F5753A7128A7270500B3D515 /* HomeView.m in Sources */,
 				F5753A6628A722F300B3D515 /* main.m in Sources */,
-				F5753A5828A722F300B3D515 /* SceneDelegate.m in Sources */,
+				F5753A7828A7293200B3D515 /* UIColor+TT.m in Sources */,
+				F5753A7B28A73D3300B3D515 /* BrickView.m in Sources */,
+				F5753A6E28A7254E00B3D515 /* Constant.m in Sources */,
+				F5753A7428A7271500B3D515 /* BoardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F5753A5C28A722F300B3D515 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F5753A5D28A722F300B3D515 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F5753A6128A722F300B3D515 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -295,9 +315,9 @@
 				DEVELOPMENT_TEAM = XC5W5WJCHA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tetris/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -322,9 +342,9 @@
 				DEVELOPMENT_TEAM = XC5W5WJCHA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tetris/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
