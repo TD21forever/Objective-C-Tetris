@@ -23,8 +23,37 @@ static inline NSInteger gridToFrame(NSInteger val){
 
 // 方块类型
 typedef NS_ENUM(NSInteger, BrickType){
-    BrickTypeI,
-    BrickTypeIR,
+    
+    // I 两种
+    // L 四种
+    // J 四种
+    // S 两种
+    // Z 两种
+    // T 四种
+    // 田 一种
+    
+    // base type
+    BrickTypeI = 0,       // I型
+    BrickTypeIR,          // 反I型
+    BrickTypeL,           // L型
+    BrickTypeLR,          // 反L型
+    BrickTypeO,           // 田字型
+    BrickTypeT,           // T型
+    BrickTypeZ,           // Z型
+    BrickTypeZR,          // 反Z型
+    
+    // reversal type
+    BrickTypeL1,          // L1型
+    BrickTypeL2,          // L2型
+    BrickTypeL3,          // L3型
+    BrickTypeLR1,         // 反L型1
+    BrickTypeLR2,         // 反L型2
+    BrickTypeLR3,         // 反L型3
+    BrickTypeT1,          // T型1
+    BrickTypeT2,          // T型2
+    BrickTypeT3,          // T型3
+    BrickTypeZ1,          // Z型1
+    BrickTypeZR1,         // 反Z型1
 };
 
 

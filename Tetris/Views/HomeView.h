@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)playClick;
 - (void)leftClick;
 - (void)rightClick;
+- (void)downClick;
+- (void)reverseClick;
+- (void)pauseClick;
 
 @end
 

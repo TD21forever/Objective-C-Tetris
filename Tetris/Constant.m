@@ -8,7 +8,7 @@
 #import "Constant.h"
 
 
-NSInteger boardWidth = 10;
+NSInteger boardWidth = 8;
 NSInteger boardHeight = 20;
 NSInteger gridSize = 20;
 
