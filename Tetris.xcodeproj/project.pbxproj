@@ -19,6 +19,7 @@
 		F5753A7828A7293200B3D515 /* UIColor+TT.m in Sources */ = {isa = PBXBuildFile; fileRef = F5753A7728A7293200B3D515 /* UIColor+TT.m */; };
 		F5753A7B28A73D3300B3D515 /* BrickView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5753A7A28A73D3300B3D515 /* BrickView.m */; };
 		F5753A7E28A7660600B3D515 /* BrickManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5753A7D28A7660600B3D515 /* BrickManager.m */; };
+		F5AD9D2828A9F6D6001C8C64 /* BrickPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = F5AD9D2728A9F6D6001C8C64 /* BrickPoint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,8 @@
 		F5753A7A28A73D3300B3D515 /* BrickView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrickView.m; sourceTree = "<group>"; };
 		F5753A7C28A7660600B3D515 /* BrickManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrickManager.h; sourceTree = "<group>"; };
 		F5753A7D28A7660600B3D515 /* BrickManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrickManager.m; sourceTree = "<group>"; };
+		F5AD9D2628A9F6D6001C8C64 /* BrickPoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrickPoint.h; sourceTree = "<group>"; };
+		F5AD9D2728A9F6D6001C8C64 /* BrickPoint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrickPoint.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +136,8 @@
 			children = (
 				F5753A7C28A7660600B3D515 /* BrickManager.h */,
 				F5753A7D28A7660600B3D515 /* BrickManager.m */,
+				F5AD9D2628A9F6D6001C8C64 /* BrickPoint.h */,
+				F5AD9D2728A9F6D6001C8C64 /* BrickPoint.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 				F5753A6628A722F300B3D515 /* main.m in Sources */,
 				F5753A7828A7293200B3D515 /* UIColor+TT.m in Sources */,
 				F5753A7B28A73D3300B3D515 /* BrickView.m in Sources */,
+				F5AD9D2828A9F6D6001C8C64 /* BrickPoint.m in Sources */,
 				F5753A7E28A7660600B3D515 /* BrickManager.m in Sources */,
 				F5753A6E28A7254E00B3D515 /* Constant.m in Sources */,
 				F5753A7428A7271500B3D515 /* BoardView.m in Sources */,

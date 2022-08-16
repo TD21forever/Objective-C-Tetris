@@ -8,7 +8,7 @@
 #import "ViewController.h"
 #import "Constant.h"
 #import "BrickView.h"
-
+#import "BrickManager.h"
 @interface ViewController ()<HomeViewDelegate>
 
 @property (nonatomic,strong) HomeView* home;
@@ -17,8 +17,16 @@
 @property (nonatomic,strong) NSMutableArray<BrickView*>* nextBricks;
 @property (nonatomic,strong) dispatch_source_t timer;
 
+@property (nonatomic,assign) BrickType curBrickType;
+@property (nonatomic,assign) BrickType nextBrickType;
 
 @property (nonatomic,strong) dispatch_semaphore_t lock;
+
+// status
+@property (nonatomic,assign) Boolean isGameOver;
+@property (nonatomic,assign) Boolean isPlaying;
+@property (nonatomic,assign) NSInteger scores;
+
 @end
 
 @implementation ViewController
@@ -41,7 +49,39 @@
 
 #pragma mark - HomeView Delegate
 
+- (void)playClick {
+    if(self.isGameOver || self.isPlaying){
+        return;
+    }
+    self.isPlaying = YES;
+    [self startTimer];
+}
+
+- (void)pauseClick{
+    if (self.isPlaying) {
+        self.isPlaying = NO;
+        dispatch_suspend(self.timer);
+    }
+  
+}
+
+- (void)restartClick{
+    self.isGameOver = NO;
+    dispatch_suspend(self.timer);
+    [self.existBricks makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self.curBricks makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self.existBricks removeAllObjects];
+    [self.curBricks removeAllObjects];
+    
+    [self.nextBricks removeAllObjects];
+    [self.home.nextBricks makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
+    self.home.scores = 0;
+}
+
+
 - (void)leftClick {
+    if (self.isGameOver || !self.isPlaying) return;
     if([self isAvailableToMove:BrickDirectionLeft]){
         [self.curBricks enumerateObjectsUsingBlock:^(BrickView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [self updateBrick:obj direction:BrickDirectionLeft step:1];
@@ -50,11 +90,10 @@
 
 }
 
-- (void)playClick {
-    [self startTimer];
-}
+
 
 - (void)rightClick {
+    if (self.isGameOver || !self.isPlaying) return;
     if([self isAvailableToMove:BrickDirectionRight]){
         [self.curBricks enumerateObjectsUsingBlock:^(BrickView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [self updateBrick:obj direction:BrickDirectionRight step:1];
@@ -63,12 +102,46 @@
 }
 
 - (void)reverseClick{
+    if (self.isGameOver || !self.isPlaying) return;
+    BrickType reversedType = [[BrickManager shared]brickReversed:self.curBrickType];
+    NSArray<BrickPoint*>* brickPointsArray = [[BrickManager shared]getBrickPoints:reversedType];
+    // 计算中心点
+    BrickPoint* reversedCenter = [[BrickManager shared]getCenterPositionOfBricksPoints:brickPointsArray];
+    BrickPoint* currentCenter = [[BrickManager shared]getCenterPositionOfBricks:self.curBricks];
+    NSInteger x = currentCenter.x - reversedCenter.x;
+    NSInteger y = currentCenter.y - reversedCenter.y;
+    NSMutableArray<BrickView*>* reversedBrickViews = [NSMutableArray array];
+    for(BrickPoint* point in brickPointsArray){
+        // 更新偏移
+        point.x += x;
+        point.y += y;
+        // 是否越界
+        if(point.x < 0 || point.x >= boardWidth || point.y >= boardHeight) return;
+        CGRect frame = CGRectMake(gridToFrame(point.x), gridToFrame(point.y), gridSize, gridSize);
+        // 是否碰撞
+        for(BrickView* existView in self.existBricks){
+            if(CGRectIntersectsRect(existView.frame, frame)) return;
+        }
+        BrickView* brickView = [[BrickView alloc]initWithFrame:frame point:point];
+        [reversedBrickViews addObject:brickView];
+    }
+
+    for(NSInteger index = 0; index < reversedBrickViews.count; index++){
+        BrickView* oldView = self.curBricks[index];
+        BrickView* newView = reversedBrickViews[index];
+        [oldView removeFromSuperview];
+        [self.home.board addSubview:newView];
+    }
+    [self.curBricks removeAllObjects];
+    [self.curBricks addObjectsFromArray:reversedBrickViews];
+    self.curBrickType = reversedType;
+    [reversedBrickViews removeAllObjects];
     return;
 }
 
 - (void)downClick{
+    if (self.isGameOver || !self.isPlaying) return;
     for(NSInteger i = 0; i < 2; i++){
-        
         if([self isAvailableToMove:BrickDirectionDown]){
             [self.curBricks enumerateObjectsUsingBlock:^(BrickView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 [self updateBrick:obj direction:BrickDirectionDown step:1];
@@ -84,7 +157,7 @@
 - (void)startTimer{
     if(!_timer){
         self.timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-        dispatch_source_set_timer(self.timer, DISPATCH_TIME_NOW, NSEC_PER_SEC*0.1, 0);
+        dispatch_source_set_timer(self.timer, DISPATCH_TIME_NOW, NSEC_PER_SEC*0.5, 0);
         dispatch_source_set_event_handler(self.timer, ^{
             if(self.nextBricks.count == 0){
                 [self genNextBricks];
@@ -127,21 +200,37 @@
 
 - (void)genNextBricks{
     
-     NSArray* points = [[BrickManager shared]getBrickPoints:BrickTypeI];
+    BrickType type = (BrickType)(arc4random()%19);
+//    BrickType type = BrickTypeT;
+    self.nextBrickType = type;
+    NSInteger w = [[BrickManager shared]getBricksWidth:type];
+    NSInteger randomXOffset = arc4random() % (boardWidth - w);
+    NSArray* points = [[BrickManager shared]getBrickPoints:type];
+    NSMutableArray<BrickView*>* showNextBrickView = [NSMutableArray array];
     [points enumerateObjectsUsingBlock:^(BrickPoint*  _Nonnull point, NSUInteger idx, BOOL * _Nonnull stop) {
         
+        [showNextBrickView addObject:
+                        [[BrickView alloc]initWithFrame: CGRectMake(gridToFrame(point.x), gridToFrame(point.y+4), gridSize, gridSize)
+                        point:point]];
+        
+        point.x += randomXOffset;
         CGRect frame = CGRectMake(gridToFrame(point.x), gridToFrame(point.y), gridSize, gridSize);
         BrickView * brick = [[BrickView alloc]initWithFrame: frame point:point];
         [self.nextBricks addObject:brick];
-        
+
     }];
+    if(self.curBricks.count != 0){
+        self.home.nextBricks = showNextBrickView;
+    }
     
+
 }
 
 // 生成 curBricks,从nextBricks中获取
 - (void)genCurBricks{
     [self.curBricks addObjectsFromArray:self.nextBricks];
     [self.nextBricks removeAllObjects];
+    self.curBrickType = self.nextBrickType;
     [self.curBricks enumerateObjectsUsingBlock:^(BrickView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [self.home.board addSubview:obj];
     }];
@@ -195,7 +284,6 @@
             return NO;
         }
         // 是否碰撞
-        NSLog(@"%ld",self.existBricks.count);
         for(BrickView* existBrick in self.existBricks){
             if(newPoint.x == existBrick.point.x && newPoint.y == existBrick.point.y){
                 return NO;
@@ -237,6 +325,9 @@
             }];
         }
     }
+    self.scores += removeNumber * 100;
+    self.home.scores = self.scores;
+    
 }
 
 @end

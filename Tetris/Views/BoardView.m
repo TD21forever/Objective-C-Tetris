@@ -16,7 +16,6 @@
 @property (nonatomic,strong) NSMutableArray<BrickView*>* existBricks;
 @property (nonatomic,strong) NSMutableArray<BrickView*>* nextBricks;
 
-@property (nonatomic,strong) dispatch_source_t timer;
 
 @end
 
@@ -24,6 +23,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if(self = [super initWithFrame:frame]){
+        self.clipsToBounds = YES;
         for(NSInteger width = 0; width < boardWidth; width ++){
             for(NSInteger height = 0; height < boardHeight; height ++){
                 GridView * grid = [[GridView alloc]initWithFrame:CGRectMake(gridToFrame(width), gridToFrame(height), gridSize, gridSize)];

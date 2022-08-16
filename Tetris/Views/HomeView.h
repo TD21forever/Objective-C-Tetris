@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BoardView.h"
+#import "BrickView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)downClick;
 - (void)reverseClick;
 - (void)pauseClick;
+- (void)restartClick;
 
 @end
 
@@ -25,6 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HomeView : UIView
 @property (nonatomic,strong) BoardView* board;
 @property (nonatomic,weak) id<HomeViewDelegate> delegate;
+@property (nonatomic,weak) void (^scoreUpdateBlock)(NSInteger score) ;
+
+@property (nonatomic,assign) NSInteger scores;
+@property (nonatomic,strong) NSArray<BrickView*>* nextBricks;
 
 @end
 

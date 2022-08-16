@@ -7,8 +7,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Constant.h"
+#import "BrickView.h"
+#import "BrickPoint.h"
 
 NS_ASSUME_NONNULL_BEGIN
+
+
+
 
 @interface BrickManager : NSObject
 
@@ -16,17 +21,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSArray*)getBrickPoints:(BrickType)type;
 
+- (BrickPoint*)getCenterPositionOfBricks:(NSArray<BrickView*>*)brickArray;
+
+- (BrickPoint*)getCenterPositionOfBricksPoints:(NSArray<BrickPoint*>*)brickArray;
+
+- (NSInteger)getBricksWidth:(BrickType)type;
+
+- (BrickType)brickReversed:(BrickType)type;
+
+
 @end
 
 
-
-@interface BrickPoint : NSObject
-
-- (instancetype)initWithX:(NSInteger)x withY:(NSInteger)y;
-@property (nonatomic,assign) NSInteger x;
-@property (nonatomic,assign) NSInteger y;
-
-@end
 
 
 NS_ASSUME_NONNULL_END

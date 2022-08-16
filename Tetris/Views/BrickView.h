@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Constant.h"
-#import "BrickManager.h"
+#import "BrickPoint.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
