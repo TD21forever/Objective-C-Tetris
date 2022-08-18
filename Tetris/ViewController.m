@@ -9,6 +9,7 @@
 #import "Constant.h"
 #import "BrickView.h"
 #import "BrickManager.h"
+#import "AudioManager.h"
 @interface ViewController ()<HomeViewDelegate>
 
 @property (nonatomic,strong) HomeView* home;
@@ -23,9 +24,10 @@
 @property (nonatomic,strong) dispatch_semaphore_t lock;
 
 // status
-@property (nonatomic,assign) Boolean isGameOver;
-@property (nonatomic,assign) Boolean isPlaying;
 @property (nonatomic,assign) NSInteger scores;
+@property (nonatomic,assign) NSInteger speed;
+@property (nonatomic,copy) NSString * status;
+@property (nonatomic,assign) GameStatus gameStatus;
 
 @end
 
@@ -39,10 +41,13 @@
     
     [self.view addSubview: self.home];
     self.home.delegate = self;
-    self.lock = dispatch_semaphore_create(1);
+    
     self.curBricks = [NSMutableArray array];
     self.existBricks = [NSMutableArray array];
     self.nextBricks = [NSMutableArray array];
+    
+    self.speed = 3;
+    self.gameStatus = GameStatusOver;
     
     
 }
@@ -50,24 +55,39 @@
 #pragma mark - HomeView Delegate
 
 - (void)playClick {
-    if(self.isGameOver || self.isPlaying){
+    
+    // 游戏正在进行,点击暂停
+    [[AudioManager shared]performAutioWithType:ButtonAudioAction];
+    if(self.gameStatus == GameStatusOver){
+        [self restartClick];
+        self.gameStatus = GameStatusPlaying;
+        [self startTimer];
         return;
     }
-    self.isPlaying = YES;
-    [self startTimer];
+    if(self.gameStatus == GameStatusPlaying){
+        [self pauseClick];
+    } else {
+        self.gameStatus = GameStatusPlaying;
+        [self startTimer];
+    }
+   
 }
 
 - (void)pauseClick{
-    if (self.isPlaying) {
-        self.isPlaying = NO;
-        dispatch_suspend(self.timer);
-    }
-  
+    
+    self.gameStatus = GameStatusPaused;
+    dispatch_suspend(self.timer);
+
 }
 
 - (void)restartClick{
-    self.isGameOver = NO;
-    dispatch_suspend(self.timer);
+    
+    [[AudioManager shared]performAutioWithType:ButtonAudioAction];
+    
+    if(self.gameStatus == GameStatusPlaying){
+        dispatch_suspend(self.timer);
+    }
+    self.gameStatus = GameStatusOver;
     [self.existBricks makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self.curBricks makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self.existBricks removeAllObjects];
@@ -77,11 +97,32 @@
     [self.home.nextBricks makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
     self.home.scores = 0;
+ 
 }
 
 
+- (void)plusSpeed{
+    self.speed = self.speed % 9 + 1;
+    self.home.speed = self.speed;
+    return;
+}
+
+- (void)minusSpeed{
+    self.speed -= 1;
+    if (self.speed == 0) self.speed = 9;
+    self.home.speed = self.speed;
+    return;
+}
+
 - (void)leftClick {
-    if (self.isGameOver || !self.isPlaying) return;
+    [[AudioManager shared]performAutioWithType:ButtonAudioDirection];
+    if (self.gameStatus == GameStatusOver){
+        [self minusSpeed];
+        return;
+    }
+    if (self.gameStatus == GameStatusPaused){
+        return;
+    }
     if([self isAvailableToMove:BrickDirectionLeft]){
         [self.curBricks enumerateObjectsUsingBlock:^(BrickView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [self updateBrick:obj direction:BrickDirectionLeft step:1];
@@ -93,7 +134,14 @@
 
 
 - (void)rightClick {
-    if (self.isGameOver || !self.isPlaying) return;
+    [[AudioManager shared]performAutioWithType:ButtonAudioDirection];
+    if (self.gameStatus == GameStatusOver){
+        [self plusSpeed];
+        return;
+    }
+    if (self.gameStatus == GameStatusPaused){
+        return;
+    }
     if([self isAvailableToMove:BrickDirectionRight]){
         [self.curBricks enumerateObjectsUsingBlock:^(BrickView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [self updateBrick:obj direction:BrickDirectionRight step:1];
@@ -102,7 +150,10 @@
 }
 
 - (void)reverseClick{
-    if (self.isGameOver || !self.isPlaying) return;
+    [[AudioManager shared]performAutioWithType:ButtonAudioReverse];
+    if (self.gameStatus == GameStatusPaused){
+        return;
+    }
     BrickType reversedType = [[BrickManager shared]brickReversed:self.curBrickType];
     NSArray<BrickPoint*>* brickPointsArray = [[BrickManager shared]getBrickPoints:reversedType];
     // 计算中心点
@@ -140,7 +191,14 @@
 }
 
 - (void)downClick{
-    if (self.isGameOver || !self.isPlaying) return;
+    [[AudioManager shared]performAutioWithType:ButtonAudioDirection];
+    if (self.gameStatus == GameStatusOver){
+        [self minusSpeed];
+        return;
+    }
+    if (self.gameStatus == GameStatusPaused){
+        return;
+    }
     for(NSInteger i = 0; i < 2; i++){
         if([self isAvailableToMove:BrickDirectionDown]){
             [self.curBricks enumerateObjectsUsingBlock:^(BrickView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -157,40 +215,42 @@
 - (void)startTimer{
     if(!_timer){
         self.timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-        dispatch_source_set_timer(self.timer, DISPATCH_TIME_NOW, NSEC_PER_SEC*0.5, 0);
-        dispatch_source_set_event_handler(self.timer, ^{
-            if(self.nextBricks.count == 0){
-                [self genNextBricks];
-            }
-            if(self.curBricks.count == 0){
-                [self genCurBricks];
-            }
-            if([self isAvailableToMove: BrickDirectionDown]){
-                
+    }
+    dispatch_source_set_timer(self.timer, DISPATCH_TIME_NOW, NSEC_PER_SEC / (self.speed * 2), 0);
+    dispatch_source_set_event_handler(self.timer, ^{
+        if(self.nextBricks.count == 0){
+            [self genNextBricks];
+        }
+        if(self.curBricks.count == 0){
+            [self genCurBricks];
+        }
+        if([self isAvailableToMove: BrickDirectionDown]){
+            
 //                dispatch_semaphore_wait(self.lock, DISPATCH_TIME_FOREVER);
 
-                // 下降
-                [self.curBricks enumerateObjectsUsingBlock:^(BrickView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                                [self updateBrick:obj direction:BrickDirectionDown step:1];
-                }];
-                
+            // 下降
+            [self.curBricks enumerateObjectsUsingBlock:^(BrickView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                            [self updateBrick:obj direction:BrickDirectionDown step:1];
+            }];
+            
 //                dispatch_semaphore_signal(self.lock);
 
-            } else {
-                
-                [self.existBricks addObjectsFromArray:self.curBricks];
-                [self removeBlocks];
-                [self.curBricks removeAllObjects];
-                [self genCurBricks];
-                if(! [self isAvailableToMove:BrickDirectionDown]){
-                    NSLog(@"Game over");
-                    dispatch_suspend(self.timer);
-                }
-            }
+        } else {
             
-        });
+            [self.existBricks addObjectsFromArray:self.curBricks];
+            [self removeBlocks];
+            [self.curBricks removeAllObjects];
+            [self genCurBricks];
+            if(! [self isAvailableToMove:BrickDirectionDown]){
+                NSLog(@"Game over");
+                [[AudioManager shared]performAutioWithType:ButtonAudioOver];
+                self.gameStatus = GameStatusOver;
+                dispatch_suspend(self.timer);
+            }
+        }
         
-    }
+    });
+        
     dispatch_resume(self.timer);
 }
 
@@ -316,6 +376,7 @@
                     [obj removeFromSuperview];
                     [self.existBricks removeObject:obj];
             }];
+            [[AudioManager shared]performAutioWithType:ButtonAudioRemove];
             removeNumber ++;
         }
         // 否则往下移动
@@ -328,6 +389,23 @@
     self.scores += removeNumber * 100;
     self.home.scores = self.scores;
     
+}
+
+- (void)setSpeed:(NSInteger)speed{
+    if(_speed != speed){
+        _speed = speed;
+    }
+}
+
+- (void)setGameStatus:(GameStatus)gameStatus{
+    _gameStatus = gameStatus;
+    if(gameStatus == GameStatusOver){
+        self.home.statusEmoji = @"🏳";
+    } else if(gameStatus == GameStatusPaused){
+        self.home.statusEmoji = @"⏸";
+    } else {
+        self.home.statusEmoji = @"▶️";
+    }
 }
 
 @end

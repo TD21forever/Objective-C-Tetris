@@ -9,7 +9,7 @@
 #import "Constant.h"
 #import "BrickView.h"
 #import "BrickManager.h"
-
+#import "UIColor+TT.h"
 @interface BoardView()
 
 @property (nonatomic,strong) NSMutableArray<BrickView*>* curBricks;
@@ -23,6 +23,8 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if(self = [super initWithFrame:frame]){
+        self.layer.borderColor = [UIColor blackColor].CGColor;
+        self.layer.borderWidth = 1.2;
         self.clipsToBounds = YES;
         for(NSInteger width = 0; width < boardWidth; width ++){
             for(NSInteger height = 0; height < boardHeight; height ++){
@@ -43,9 +45,9 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if(self = [super initWithFrame:frame]){
-        self.backgroundColor = [UIColor lightGrayColor];
+        self.backgroundColor = [UIColor grayColor];
         self.layer.borderWidth = 0.5;
-        self.layer.borderColor = [UIColor lightTextColor].CGColor;
+        self.layer.borderColor = [UIColor lightGrayColor].CGColor;
         
     }
     return self;

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F5177DAD28AE0C9F008C5ABC /* AudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5177DAC28AE0C9F008C5ABC /* AudioManager.m */; };
+		F5177DB228AE1479008C5ABC /* rotation.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F5177DAF28AE1479008C5ABC /* rotation.mp3 */; };
+		F5177DB328AE1479008C5ABC /* direction.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F5177DB028AE1479008C5ABC /* direction.mp3 */; };
+		F5177DB428AE1479008C5ABC /* action.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F5177DB128AE1479008C5ABC /* action.mp3 */; };
+		F5177DB628AE1B58008C5ABC /* remove.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F5177DB528AE1B58008C5ABC /* remove.mp3 */; };
+		F5177DB828AE1BCA008C5ABC /* over.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F5177DB728AE1BCA008C5ABC /* over.mp3 */; };
+		F5177DBA28AE2D0C008C5ABC /* Digital.TTF in Resources */ = {isa = PBXBuildFile; fileRef = F5177DB928AE2D0C008C5ABC /* Digital.TTF */; };
 		F54CA5F35037B0F0078688F2 /* Pods_Tetris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA5CE7F5884C083E311EF051 /* Pods_Tetris.framework */; };
 		F5753A5528A722F300B3D515 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5753A5428A722F300B3D515 /* AppDelegate.m */; };
 		F5753A5B28A722F300B3D515 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5753A5A28A722F300B3D515 /* ViewController.m */; };
@@ -20,12 +27,21 @@
 		F5753A7B28A73D3300B3D515 /* BrickView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5753A7A28A73D3300B3D515 /* BrickView.m */; };
 		F5753A7E28A7660600B3D515 /* BrickManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5753A7D28A7660600B3D515 /* BrickManager.m */; };
 		F5AD9D2828A9F6D6001C8C64 /* BrickPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = F5AD9D2728A9F6D6001C8C64 /* BrickPoint.m */; };
+		F5AD9D2C28ABAD0D001C8C64 /* TetrisButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5AD9D2B28ABAD0D001C8C64 /* TetrisButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		18C3D6F05848BF9E70029310 /* Pods-Tetris.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tetris.release.xcconfig"; path = "Target Support Files/Pods-Tetris/Pods-Tetris.release.xcconfig"; sourceTree = "<group>"; };
 		DA5CE7F5884C083E311EF051 /* Pods_Tetris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tetris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DABD42D571E2E3A663D17BCC /* Pods-Tetris.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tetris.debug.xcconfig"; path = "Target Support Files/Pods-Tetris/Pods-Tetris.debug.xcconfig"; sourceTree = "<group>"; };
+		F5177DAB28AE0C9F008C5ABC /* AudioManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioManager.h; sourceTree = "<group>"; };
+		F5177DAC28AE0C9F008C5ABC /* AudioManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioManager.m; sourceTree = "<group>"; };
+		F5177DAF28AE1479008C5ABC /* rotation.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rotation.mp3; sourceTree = "<group>"; };
+		F5177DB028AE1479008C5ABC /* direction.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = direction.mp3; sourceTree = "<group>"; };
+		F5177DB128AE1479008C5ABC /* action.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = action.mp3; sourceTree = "<group>"; };
+		F5177DB528AE1B58008C5ABC /* remove.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = remove.mp3; sourceTree = "<group>"; };
+		F5177DB728AE1BCA008C5ABC /* over.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = over.mp3; sourceTree = "<group>"; };
+		F5177DB928AE2D0C008C5ABC /* Digital.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = Digital.TTF; sourceTree = "<group>"; };
 		F5753A5028A722F300B3D515 /* Tetris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tetris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5753A5328A722F300B3D515 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F5753A5428A722F300B3D515 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -49,6 +65,8 @@
 		F5753A7D28A7660600B3D515 /* BrickManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrickManager.m; sourceTree = "<group>"; };
 		F5AD9D2628A9F6D6001C8C64 /* BrickPoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrickPoint.h; sourceTree = "<group>"; };
 		F5AD9D2728A9F6D6001C8C64 /* BrickPoint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrickPoint.m; sourceTree = "<group>"; };
+		F5AD9D2A28ABAD0D001C8C64 /* TetrisButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TetrisButton.h; sourceTree = "<group>"; };
+		F5AD9D2B28ABAD0D001C8C64 /* TetrisButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TetrisButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +98,29 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F5177DAA28AE0711008C5ABC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F5177DB928AE2D0C008C5ABC /* Digital.TTF */,
+				F5177DAE28AE145E008C5ABC /* Audio */,
+				F5753A5F28A722F300B3D515 /* Assets.xcassets */,
+				F5753A6128A722F300B3D515 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F5177DAE28AE145E008C5ABC /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				F5177DB028AE1479008C5ABC /* direction.mp3 */,
+				F5177DB128AE1479008C5ABC /* action.mp3 */,
+				F5177DB528AE1B58008C5ABC /* remove.mp3 */,
+				F5177DB728AE1BCA008C5ABC /* over.mp3 */,
+				F5177DAF28AE1479008C5ABC /* rotation.mp3 */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 		F5753A4728A722F300B3D515 = {
 			isa = PBXGroup;
 			children = (
@@ -101,16 +142,16 @@
 		F5753A5228A722F300B3D515 /* Tetris */ = {
 			isa = PBXGroup;
 			children = (
+				F5177DAA28AE0711008C5ABC /* Supporting Files */,
 				F5753A5328A722F300B3D515 /* AppDelegate.h */,
 				F5753A5428A722F300B3D515 /* AppDelegate.m */,
 				F5753A5928A722F300B3D515 /* ViewController.h */,
 				F5753A5A28A722F300B3D515 /* ViewController.m */,
-				F5753A5F28A722F300B3D515 /* Assets.xcassets */,
-				F5753A6128A722F300B3D515 /* LaunchScreen.storyboard */,
-				F5753A6428A722F300B3D515 /* Info.plist */,
 				F5753A6528A722F300B3D515 /* main.m */,
 				F5753A6C28A7254E00B3D515 /* Constant.h */,
 				F5753A6D28A7254E00B3D515 /* Constant.m */,
+				F5753A6428A722F300B3D515 /* Info.plist */,
+				F5AD9D2928ABAC97001C8C64 /* Components */,
 				F5753A8028A8481600B3D515 /* Categories */,
 				F5753A7F28A8480900B3D515 /* Utils */,
 				F5753A7528A7272200B3D515 /* Views */,
@@ -138,6 +179,8 @@
 				F5753A7D28A7660600B3D515 /* BrickManager.m */,
 				F5AD9D2628A9F6D6001C8C64 /* BrickPoint.h */,
 				F5AD9D2728A9F6D6001C8C64 /* BrickPoint.m */,
+				F5177DAB28AE0C9F008C5ABC /* AudioManager.h */,
+				F5177DAC28AE0C9F008C5ABC /* AudioManager.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -149,6 +192,15 @@
 				F5753A7728A7293200B3D515 /* UIColor+TT.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		F5AD9D2928ABAC97001C8C64 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F5AD9D2A28ABAD0D001C8C64 /* TetrisButton.h */,
+				F5AD9D2B28ABAD0D001C8C64 /* TetrisButton.m */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,7 +262,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5177DB228AE1479008C5ABC /* rotation.mp3 in Resources */,
+				F5177DB828AE1BCA008C5ABC /* over.mp3 in Resources */,
+				F5177DB428AE1479008C5ABC /* action.mp3 in Resources */,
 				F5753A6328A722F300B3D515 /* LaunchScreen.storyboard in Resources */,
+				F5177DB628AE1B58008C5ABC /* remove.mp3 in Resources */,
+				F5177DBA28AE2D0C008C5ABC /* Digital.TTF in Resources */,
+				F5177DB328AE1479008C5ABC /* direction.mp3 in Resources */,
 				F5753A6028A722F300B3D515 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,8 +325,10 @@
 				F5753A5B28A722F300B3D515 /* ViewController.m in Sources */,
 				F5753A5528A722F300B3D515 /* AppDelegate.m in Sources */,
 				F5753A7128A7270500B3D515 /* HomeView.m in Sources */,
+				F5AD9D2C28ABAD0D001C8C64 /* TetrisButton.m in Sources */,
 				F5753A6628A722F300B3D515 /* main.m in Sources */,
 				F5753A7828A7293200B3D515 /* UIColor+TT.m in Sources */,
+				F5177DAD28AE0C9F008C5ABC /* AudioManager.m in Sources */,
 				F5753A7B28A73D3300B3D515 /* BrickView.m in Sources */,
 				F5AD9D2828A9F6D6001C8C64 /* BrickPoint.m in Sources */,
 				F5753A7E28A7660600B3D515 /* BrickManager.m in Sources */,

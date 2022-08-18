@@ -64,6 +64,20 @@ typedef NS_ENUM(NSInteger, BrickDirection) {
     BrickDirectionRight
 };
 
+typedef NS_ENUM(NSInteger, ButtonAudioType) {
+    ButtonAudioReverse = 0,
+    ButtonAudioAction,
+    ButtonAudioDirection,
+    ButtonAudioRemove,
+    ButtonAudioOver
+};
+
+typedef NS_ENUM(NSInteger,GameStatus){
+    GameStatusPlaying = 0,
+    GameStatusPaused,
+    GameStatusOver
+};
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Constant : NSObject

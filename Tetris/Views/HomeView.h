@@ -30,6 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,weak) void (^scoreUpdateBlock)(NSInteger score) ;
 
 @property (nonatomic,assign) NSInteger scores;
+@property (nonatomic,assign) NSInteger speed;
+@property (nonatomic,copy) NSString* statusEmoji;
 @property (nonatomic,strong) NSArray<BrickView*>* nextBricks;
 
 @end
