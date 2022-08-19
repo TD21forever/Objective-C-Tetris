@@ -24,7 +24,7 @@ static NSMutableDictionary* _cache;
     });
     return _shared;
 }
-- (void)performAutioWithType:(ButtonAudioType)type{
+- (void)performAudioWithType:(ButtonAudioType)type{
     NSString* name;
     switch (type) {
         case ButtonAudioDirection:

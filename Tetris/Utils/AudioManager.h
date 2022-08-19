@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)shared;
 - (AVAudioPlayer*)getPlayerByName:(NSString*)name;
-- (void)performAutioWithType:(ButtonAudioType)type;
+- (void)performAudioWithType:(ButtonAudioType)type;
 
 @end
 
