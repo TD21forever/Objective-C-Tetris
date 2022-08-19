@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "HomeView.h"
 
-@interface ViewController : UIViewController
+@interface GameController : UIViewController
 
 
 @end

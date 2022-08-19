@@ -14,6 +14,7 @@
 #define BUTTOM_SIZE 80
 
 @interface HomeView ()
+
 @property (nonatomic,strong) UIView * nextBlockBackground;
 @property (nonatomic,strong) UILabel * score;
 @property (nonatomic,strong) UILabel * speedLabel;
@@ -123,7 +124,7 @@
     }];
     
     self.speedLabel = [UILabel new];
-    self.speedLabel.text = @"1";
+    self.speedLabel.text = @"";
     self.speedLabel.font = digital_font;
     [self addSubview:self.speedLabel];
     [self.speedLabel mas_makeConstraints:^(MASConstraintMaker *make) {

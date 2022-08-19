@@ -6,7 +6,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "GameController.h"
 
 
 @interface AppDelegate ()
@@ -23,7 +23,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    self.window.rootViewController = [[ViewController alloc]init];
+    self.window.rootViewController = [[GameController alloc]init];
     return YES;
 }
 

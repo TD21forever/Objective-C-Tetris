@@ -16,7 +16,7 @@
 		F5177DBA28AE2D0C008C5ABC /* Digital.TTF in Resources */ = {isa = PBXBuildFile; fileRef = F5177DB928AE2D0C008C5ABC /* Digital.TTF */; };
 		F54CA5F35037B0F0078688F2 /* Pods_Tetris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA5CE7F5884C083E311EF051 /* Pods_Tetris.framework */; };
 		F5753A5528A722F300B3D515 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5753A5428A722F300B3D515 /* AppDelegate.m */; };
-		F5753A5B28A722F300B3D515 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5753A5A28A722F300B3D515 /* ViewController.m */; };
+		F5753A5B28A722F300B3D515 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5753A5A28A722F300B3D515 /* GameController.m */; };
 		F5753A6028A722F300B3D515 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5753A5F28A722F300B3D515 /* Assets.xcassets */; };
 		F5753A6328A722F300B3D515 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5753A6128A722F300B3D515 /* LaunchScreen.storyboard */; };
 		F5753A6628A722F300B3D515 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5753A6528A722F300B3D515 /* main.m */; };
@@ -45,8 +45,8 @@
 		F5753A5028A722F300B3D515 /* Tetris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tetris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5753A5328A722F300B3D515 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F5753A5428A722F300B3D515 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F5753A5928A722F300B3D515 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F5753A5A28A722F300B3D515 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F5753A5928A722F300B3D515 /* GameController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
+		F5753A5A28A722F300B3D515 /* GameController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
 		F5753A5F28A722F300B3D515 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5753A6228A722F300B3D515 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F5753A6428A722F300B3D515 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -145,8 +145,8 @@
 				F5177DAA28AE0711008C5ABC /* Supporting Files */,
 				F5753A5328A722F300B3D515 /* AppDelegate.h */,
 				F5753A5428A722F300B3D515 /* AppDelegate.m */,
-				F5753A5928A722F300B3D515 /* ViewController.h */,
-				F5753A5A28A722F300B3D515 /* ViewController.m */,
+				F5753A5928A722F300B3D515 /* GameController.h */,
+				F5753A5A28A722F300B3D515 /* GameController.m */,
 				F5753A6528A722F300B3D515 /* main.m */,
 				F5753A6C28A7254E00B3D515 /* Constant.h */,
 				F5753A6D28A7254E00B3D515 /* Constant.m */,
@@ -166,8 +166,6 @@
 				F5753A7028A7270500B3D515 /* HomeView.m */,
 				F5753A7228A7271500B3D515 /* BoardView.h */,
 				F5753A7328A7271500B3D515 /* BoardView.m */,
-				F5753A7928A73D3300B3D515 /* BrickView.h */,
-				F5753A7A28A73D3300B3D515 /* BrickView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -199,6 +197,8 @@
 			children = (
 				F5AD9D2A28ABAD0D001C8C64 /* TetrisButton.h */,
 				F5AD9D2B28ABAD0D001C8C64 /* TetrisButton.m */,
+				F5753A7928A73D3300B3D515 /* BrickView.h */,
+				F5753A7A28A73D3300B3D515 /* BrickView.m */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -322,7 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5753A5B28A722F300B3D515 /* ViewController.m in Sources */,
+				F5753A5B28A722F300B3D515 /* GameController.m in Sources */,
 				F5753A5528A722F300B3D515 /* AppDelegate.m in Sources */,
 				F5753A7128A7270500B3D515 /* HomeView.m in Sources */,
 				F5AD9D2C28ABAD0D001C8C64 /* TetrisButton.m in Sources */,

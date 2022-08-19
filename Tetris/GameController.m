@@ -5,12 +5,12 @@
 //  Created by T D on 2022/8/13.
 //
 
-#import "ViewController.h"
+#import "GameController.h"
 #import "Constant.h"
 #import "BrickView.h"
 #import "BrickManager.h"
 #import "AudioManager.h"
-@interface ViewController ()<HomeViewDelegate>
+@interface GameController ()<HomeViewDelegate>
 
 @property (nonatomic,strong) HomeView* home;
 @property (nonatomic,strong) NSMutableArray<BrickView*>* curBricks;
@@ -31,14 +31,13 @@
 
 @end
 
-@implementation ViewController
+@implementation GameController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     self.home = [[HomeView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
-    
     [self.view addSubview: self.home];
     self.home.delegate = self;
     
@@ -103,14 +102,12 @@
 
 - (void)plusSpeed{
     self.speed = self.speed % 9 + 1;
-    self.home.speed = self.speed;
     return;
 }
 
 - (void)minusSpeed{
     self.speed -= 1;
     if (self.speed == 0) self.speed = 9;
-    self.home.speed = self.speed;
     return;
 }
 
@@ -245,6 +242,7 @@
                 NSLog(@"Game over");
                 [[AudioManager shared]performAutioWithType:ButtonAudioOver];
                 self.gameStatus = GameStatusOver;
+                [self performSelector:@selector(restartClick) withObject:self afterDelay:2];
                 dispatch_suspend(self.timer);
             }
         }
@@ -387,14 +385,17 @@
         }
     }
     self.scores += removeNumber * 100;
-    self.home.scores = self.scores;
-    
+
 }
 
 - (void)setSpeed:(NSInteger)speed{
-    if(_speed != speed){
-        _speed = speed;
-    }
+    _speed = speed;
+    self.home.speed = speed;
+}
+
+- (void)setScores:(NSInteger)scores{
+    _scores = scores;
+    self.home.scores = self.scores;
 }
 
 - (void)setGameStatus:(GameStatus)gameStatus{
