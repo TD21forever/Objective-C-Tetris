@@ -223,14 +223,12 @@
         }
         if([self isAvailableToMove: BrickDirectionDown]){
             
-//                dispatch_semaphore_wait(self.lock, DISPATCH_TIME_FOREVER);
 
             // 下降
             [self.curBricks enumerateObjectsUsingBlock:^(BrickView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                             [self updateBrick:obj direction:BrickDirectionDown step:1];
             }];
             
-//                dispatch_semaphore_signal(self.lock);
 
         } else {
             
@@ -259,7 +257,6 @@
 - (void)genNextBricks{
     
     BrickType type = (BrickType)(arc4random()%19);
-//    BrickType type = BrickTypeT;
     self.nextBrickType = type;
     NSInteger w = [[BrickManager shared]getBricksWidth:type];
     NSInteger randomXOffset = arc4random() % (boardWidth - w);

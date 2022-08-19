@@ -59,3 +59,6 @@ nextBricks随机生成，curBricks从nextBricks中获得最新的方块
 
 
 
+更为详细的文档，可以查看
+
+https://bytedancecampus1.feishu.cn/docx/doxcnPXfDaNa78GtZDEMs2uhuyf
