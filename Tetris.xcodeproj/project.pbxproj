@@ -142,19 +142,19 @@
 		F5753A5228A722F300B3D515 /* Tetris */ = {
 			isa = PBXGroup;
 			children = (
-				F5177DAA28AE0711008C5ABC /* Supporting Files */,
 				F5753A5328A722F300B3D515 /* AppDelegate.h */,
 				F5753A5428A722F300B3D515 /* AppDelegate.m */,
-				F5753A5928A722F300B3D515 /* GameController.h */,
-				F5753A5A28A722F300B3D515 /* GameController.m */,
+				F5753A6428A722F300B3D515 /* Info.plist */,
 				F5753A6528A722F300B3D515 /* main.m */,
 				F5753A6C28A7254E00B3D515 /* Constant.h */,
 				F5753A6D28A7254E00B3D515 /* Constant.m */,
-				F5753A6428A722F300B3D515 /* Info.plist */,
-				F5AD9D2928ABAC97001C8C64 /* Components */,
-				F5753A8028A8481600B3D515 /* Categories */,
-				F5753A7F28A8480900B3D515 /* Utils */,
+				F5753A5928A722F300B3D515 /* GameController.h */,
+				F5753A5A28A722F300B3D515 /* GameController.m */,
 				F5753A7528A7272200B3D515 /* Views */,
+				F5753A7F28A8480900B3D515 /* Utils */,
+				F5753A8028A8481600B3D515 /* Categories */,
+				F5AD9D2928ABAC97001C8C64 /* Components */,
+				F5177DAA28AE0711008C5ABC /* Supporting Files */,
 			);
 			path = Tetris;
 			sourceTree = "<group>";
