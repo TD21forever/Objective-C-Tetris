@@ -10,6 +10,7 @@
 #import "BrickView.h"
 #import "BrickManager.h"
 #import "AudioManager.h"
+
 @interface GameController ()<HomeViewDelegate>
 
 @property (nonatomic,strong) HomeView* home;
@@ -122,6 +123,7 @@ static dispatch_semaphore_t lock;
    
 
     [[AudioManager shared]performAudioWithType:ButtonAudioDirection];
+    
     if (self.gameStatus == GameStatusOver){
         [self minusSpeed];
         return;

@@ -59,8 +59,8 @@ static NSMutableDictionary* _cache;
 
 
 - (AVAudioPlayer*)getPlayerByName:(NSString*)name{
-    NSBundle * bundel = [NSBundle mainBundle];
-    NSString * path = [bundel pathForResource:name ofType:@"mp3"];
+    NSBundle * bundle = [NSBundle mainBundle];
+    NSString * path = [bundle pathForResource:name ofType:@"mp3"];
     NSData * data = [[NSData alloc]initWithContentsOfFile:path];
     AVAudioPlayer * player = [[AVAudioPlayer alloc]initWithData:data error:nil];
     player.volume        = 1.0;
